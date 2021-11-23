@@ -18,9 +18,9 @@ kernel_size = 3
 
 def CannyThreshold(val):
     low_threshold = val
-    # img_blur = cv.blur(src_gray, (3,3))
+    img_blur = cv.blur(src_gray, (3,3))
     # img_blur = cv.blur(src_gray, (21,21))
-    img_blur=cv.GaussianBlur(src_gray,(51,51),10)
+    # img_blur=cv.GaussianBlur(src_gray,(51,51),10)
     detected_edges = cv.Canny(img_blur, low_threshold, low_threshold*ratio, kernel_size)
     mask = detected_edges != 0
     dst = src * (mask[:,:,None].astype(src.dtype))
